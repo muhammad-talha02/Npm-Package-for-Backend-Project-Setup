@@ -6,9 +6,6 @@ import { fileURLToPath } from "url";
 import { promisify } from "util";
 import { execSync } from "node:child_process";
 
-// const execAsync = promisify(exec);
-import CommandExecution from "./CommandExecution.js";
-
 //? Es Module -> in ES6 we get Directory Name in this way
 const __filename = fileURLToPath(import.meta.url); // Return File Name
 const __dirname = path.dirname(__filename); // Return Directory Name
@@ -36,19 +33,28 @@ async function main() {
   //? Copy All Template files in new Created ProjectName Folder
   await fs.copy(CURRENT_TEMPLATE_DIR, USER_TARGET_DIR);
 
-  //? Move into New Created Project Directory to Install Packages
-  process.chdir(USER_TARGET_DIR);
-
   //? Now Execute Commands (Install Dependencies) in New Created Project
-  console.log(chalk.blue("Installing dependencies..."));
-  //  await CommandExecution("npm install express dotenv")
-  execSync("npm install express dotenv");
+  console.log(chalk.blue("Starting....."));
+  
+  
+  try {
+    execSync('npm init -y', { cwd: USER_TARGET_DIR, stdio: 'inherit' });
+    console.log(chalk.blue("Installing Dependencies....."));
+    console.log(chalk.red("Please wait.... 😎"));
+    execSync('npm install express dotenv', { cwd: USER_TARGET_DIR, stdio: 'inherit' });
+    console.log(chalk.green("Dependencies installed successfully!"));
+  } catch (err) {
+    console.error(chalk.blue("Error installing dependencies:"), err.message);
+    process.exit(1);
+  }
+
+
   console.log(
     chalk.green(`\nSuccess! Created ${projectName} in \n ${USER_TARGET_DIR}\n`)
   );
   console.log(`cd ${answers.projectName}`);
   console.log(chalk.cyan("\n  npm start\n"));
-  console.log(chalk.red("Happy coding!\n"));
+  console.log(chalk.blue("Happy coding!\n"));
 }
 
 main();
