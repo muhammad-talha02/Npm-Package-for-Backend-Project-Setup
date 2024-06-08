@@ -2,7 +2,6 @@
   "name": "create-mt-node",
   "version": "1.1.0",
   "type": "module",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,12 +10,15 @@
   "license": "Apache-2.0",
   "description": "",
   "bin": {
-    "create-mt-node": "index.js",
-    "ctpl": "index.js"
+    "create-mt-node": "./bin/cli.mjs"
   },
   "dependencies": {
     "chalk": "^5.3.0",
     "fs-extra": "^11.2.0",
     "inquirer": "^9.2.23"
-  }
+  },
+  "files": [
+    "bin",
+    "template"
+  ]
 }

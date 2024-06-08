@@ -36,7 +36,14 @@ async function main() {
   //? Now Execute Commands (Install Dependencies) in New Created Project
   console.log(chalk.blue("Starting....."));
   
-  
+  process.chdir(USER_TARGET_DIR);
+  console.log("User directory", USER_TARGET_DIR)
+    
+  if (fs.existsSync(targetDir)) {
+    console.error(chalk.red(`Directory ${projectName} already exists. Please choose another name.`));
+    process.exit(1);
+  }
+
   try {
     execSync('npm init -y', { cwd: USER_TARGET_DIR, stdio: 'inherit' });
     console.log(chalk.blue("Installing Dependencies....."));
