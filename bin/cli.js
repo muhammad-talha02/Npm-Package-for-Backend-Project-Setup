@@ -39,10 +39,10 @@ async function main() {
   process.chdir(USER_TARGET_DIR);
   console.log("User directory", USER_TARGET_DIR)
     
-  if (fs.existsSync(targetDir)) {
-    console.error(chalk.red(`Directory ${projectName} already exists. Please choose another name.`));
-    process.exit(1);
-  }
+  // if (fs.existsSync(USER_TARGET_DIR)) {
+  //   console.error(chalk.red(`Directory ${projectName} already exists. Please choose another name.`));
+  //   process.exit(1);
+  // }
 
   try {
     execSync('npm init -y', { cwd: USER_TARGET_DIR, stdio: 'inherit' });

@@ -1,3 +1,3 @@
 
 
-import "./bin/cli.mjs"
+import "./bin/cli.js"
