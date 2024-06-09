@@ -1,3 +1,0 @@
-
-
-import "./bin/cli.js"

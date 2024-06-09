@@ -10,7 +10,7 @@
   "license": "Apache-2.0",
   "description": "",
   "bin": {
-    "create-mt-node": "./bin/cli.mjs"
+    "create-mt-node": "cli.js"
   },
   "dependencies": {
     "chalk": "^5.3.0",
@@ -18,7 +18,7 @@
     "inquirer": "^9.2.23"
   },
   "files": [
-    "bin",
+    "cli.js",
     "template"
   ]
 }
