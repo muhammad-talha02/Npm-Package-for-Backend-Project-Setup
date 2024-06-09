@@ -5,6 +5,7 @@ import path from "path";
 import inquirer from "inquirer";
 import { fileURLToPath } from "url";
 import { execSync } from "node:child_process";
+import ModifyPackageJsonFile from "./bin/customFunctions.js";
 
 //? Es Module -> in ES6 we get Directory Name in this way
 const __filename = fileURLToPath(import.meta.url); // Return File Name
@@ -75,6 +76,7 @@ async function main() {
   console.log(`cd ${answers.projectName}`);
   console.log(chalk.cyan("\n  npm start\n"));
   console.log(chalk.blue("Happy coding!\n"));
+  ModifyPackageJsonFile()
 }
 
 main();
