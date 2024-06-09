@@ -1,9 +1,11 @@
+#!/usr/bin/env node
+
 import chalk from "chalk";
 import fs from "fs-extra";
 import path from "path";
 import inquirer from "inquirer";
 import { fileURLToPath } from "url";
-import { promisify } from "util";
+// import { promisify } from "util";
 import { execSync } from "node:child_process";
 
 //? Es Module -> in ES6 we get Directory Name in this way
